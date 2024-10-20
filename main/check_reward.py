@@ -61,3 +61,13 @@ for _ in range(num_episodes):
 
 env.close()
 print("Average reward for random strategy: {}".format(episode_reward_sum/num_episodes))
+ private static long toNanosSaturated(java.time.Duration duration) {
+    // Using a try/catch seems lazy, but the catch block will rarely get invoked (except for
+    // durations longer than approximately +/- 292 years).
+    try {
+      return duration.toNanos();
+    } catch (ArithmeticException tooBig) {
+      return duration.isNegative() ? Long.MIN_VALUE : Long.MAX_VALUE;
+    }
+  }
+}
