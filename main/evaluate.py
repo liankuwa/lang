@@ -44,3 +44,10 @@ mean_reward, std_reward = evaluate_policy(model, env, render=False, n_eval_episo
 print(mean_reward)
 print(std_reward)
 # print(f"Reward: {mean_reward:.2f} +/- {std_reward:.2f}")
+ result1 = has_cloudflare_protection(resp_without_cloudflare_protection1)
+        result2 = has_cloudflare_protection(resp_without_cloudflare_protection2)
+        result3 = has_cloudflare_protection(resp_without_cloudflare_protection3)
+
+        self.assertFalse(result1)
+        self.assertFalse(result2)
+        self.assertFalse(result3)
